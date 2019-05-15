@@ -1,0 +1,8 @@
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\bin\Debug\WpfApp5.exe.config
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\bin\Debug\WpfApp5.exe
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\bin\Debug\WpfApp5.pdb
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\obj\Debug\WpfApp5.csprojResolveAssemblyReference.cache
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\obj\Debug\WpfApp5.Properties.Resources.resources
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\obj\Debug\WpfApp5.csproj.GenerateResource.Cache
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\obj\Debug\WpfApp5.exe
+c:\users\jsshin\documents\visual studio 2013\Projects\WpfApp5\WpfApp5\obj\Debug\WpfApp5.pdb
