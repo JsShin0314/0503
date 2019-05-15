@@ -7,3 +7,12 @@ D:\Test\Test_0502\Test_0502\bin\Debug\Test_0502.exe
 D:\Test\Test_0502\Test_0502\bin\Debug\Test_0502.pdb
 D:\Test\Test_0502\Test_0502\obj\Debug\Test_0502.exe
 D:\Test\Test_0502\Test_0502\obj\Debug\Test_0502.pdb
+D:\git\Test_0502\Test_0502\bin\Debug\Test_0502.exe.config
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.exe
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.pdb
+D:\git\Test_0502\Test_0502\bin\Debug\Test_0502.exe
+D:\git\Test_0502\Test_0502\bin\Debug\Test_0502.pdb
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.csprojResolveAssemblyReference.cache
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.Form1.resources
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.Properties.Resources.resources
+D:\git\Test_0502\Test_0502\obj\Debug\Test_0502.csproj.GenerateResource.Cache

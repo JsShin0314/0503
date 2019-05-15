@@ -28,48 +28,49 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LoadBtn_Img = new System.Windows.Forms.Button();
+            this.pbImg = new System.Windows.Forms.PictureBox();
+            this.gbImg = new System.Windows.Forms.GroupBox();
+            this.Btn_Load = new System.Windows.Forms.Button();
             this.BtnLeft = new System.Windows.Forms.Button();
             this.BtnRight = new System.Windows.Forms.Button();
             this.BtnCount = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.tbFileName = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImg)).BeginInit();
+            this.gbImg.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pictureBox1
+            // pbImg
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(6, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(248, 129);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseClick);
+            this.pbImg.Location = new System.Drawing.Point(6, 20);
+            this.pbImg.Name = "pbImg";
+            this.pbImg.Size = new System.Drawing.Size(248, 129);
+            this.pbImg.TabIndex = 0;
+            this.pbImg.TabStop = false;
+            this.pbImg.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pbImg_MouseClick);
             // 
-            // groupBox1
+            // gbImg
             // 
-            this.groupBox1.Controls.Add(this.pictureBox1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(260, 155);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Image";
+            this.gbImg.Controls.Add(this.pbImg);
+            this.gbImg.Location = new System.Drawing.Point(12, 12);
+            this.gbImg.Name = "gbImg";
+            this.gbImg.Size = new System.Drawing.Size(260, 155);
+            this.gbImg.TabIndex = 1;
+            this.gbImg.TabStop = false;
+            this.gbImg.Text = "Image";
             // 
-            // LoadBtn_Img
+            // Btn_Load
             // 
-            this.LoadBtn_Img.Location = new System.Drawing.Point(18, 173);
-            this.LoadBtn_Img.Name = "LoadBtn_Img";
-            this.LoadBtn_Img.Size = new System.Drawing.Size(75, 23);
-            this.LoadBtn_Img.TabIndex = 2;
-            this.LoadBtn_Img.Text = "Load";
-            this.LoadBtn_Img.UseVisualStyleBackColor = true;
-            this.LoadBtn_Img.Click += new System.EventHandler(this.LoadBtn_Img_Click);
+            this.Btn_Load.Location = new System.Drawing.Point(18, 218);
+            this.Btn_Load.Name = "Btn_Load";
+            this.Btn_Load.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Load.TabIndex = 2;
+            this.Btn_Load.Text = "Load";
+            this.Btn_Load.UseVisualStyleBackColor = true;
+            this.Btn_Load.Click += new System.EventHandler(this.LoadBtn_Img_Click);
             // 
             // BtnLeft
             // 
-            this.BtnLeft.Location = new System.Drawing.Point(138, 173);
+            this.BtnLeft.Location = new System.Drawing.Point(137, 218);
             this.BtnLeft.Name = "BtnLeft";
             this.BtnLeft.Size = new System.Drawing.Size(20, 23);
             this.BtnLeft.TabIndex = 3;
@@ -79,7 +80,7 @@
             // 
             // BtnRight
             // 
-            this.BtnRight.Location = new System.Drawing.Point(245, 173);
+            this.BtnRight.Location = new System.Drawing.Point(244, 218);
             this.BtnRight.Name = "BtnRight";
             this.BtnRight.Size = new System.Drawing.Size(21, 23);
             this.BtnRight.TabIndex = 5;
@@ -90,39 +91,51 @@
             // BtnCount
             // 
             this.BtnCount.Enabled = false;
-            this.BtnCount.Location = new System.Drawing.Point(164, 173);
+            this.BtnCount.Location = new System.Drawing.Point(163, 218);
             this.BtnCount.Name = "BtnCount";
             this.BtnCount.Size = new System.Drawing.Size(75, 23);
             this.BtnCount.TabIndex = 4;
             this.BtnCount.Text = "Count";
             this.BtnCount.UseVisualStyleBackColor = true;
             // 
+            // tbFileName
+            // 
+            this.tbFileName.Location = new System.Drawing.Point(18, 173);
+            this.tbFileName.Name = "tbFileName";
+            this.tbFileName.ReadOnly = true;
+            this.tbFileName.Size = new System.Drawing.Size(247, 21);
+            this.tbFileName.TabIndex = 6;
+            this.tbFileName.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Controls.Add(this.tbFileName);
             this.Controls.Add(this.BtnRight);
             this.Controls.Add(this.BtnCount);
             this.Controls.Add(this.BtnLeft);
-            this.Controls.Add(this.LoadBtn_Img);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.Btn_Load);
+            this.Controls.Add(this.gbImg);
             this.Name = "Form1";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbImg)).EndInit();
+            this.gbImg.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button LoadBtn_Img;
+        private System.Windows.Forms.PictureBox pbImg;
+        private System.Windows.Forms.GroupBox gbImg;
+        private System.Windows.Forms.Button Btn_Load;
         private System.Windows.Forms.Button BtnLeft;
         private System.Windows.Forms.Button BtnRight;
         private System.Windows.Forms.Button BtnCount;
+        private System.Windows.Forms.TextBox tbFileName;
     }
 }
 
