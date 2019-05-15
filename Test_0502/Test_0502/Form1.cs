@@ -13,15 +13,22 @@ namespace Test_0502
 {
     public partial class Form1 : Form
     {
-        string LoadFileName = string.Empty;
         List<string> ListLoadFileName = new List<string>();
-        int CurrentImgNum = 0;
+        List<string> ListLoadFilePath = new List<string>();
+        int nCurrentImgNum = 0;
 
         public Form1()
         {
             InitializeComponent();
         }
-        
+
+        private void init()
+        {
+            ListLoadFilePath = new List<string>();
+            ListLoadFileName = new List<string>();
+            nCurrentImgNum = 0;
+        }
+
         private void OpenFileDialog()
         {
             List<string> rList = new List<string>();
@@ -33,7 +40,6 @@ namespace Test_0502
                 opd.Filter = "All files (*.*)|*.*";
                 
                 //다중선택
-                //opd.Multiselect = false;
                 opd.Multiselect = true;
                 
                 string strAppDir = Environment.GetFolderPath((Environment.SpecialFolder.MyDocuments));
@@ -45,27 +51,18 @@ namespace Test_0502
                 {
                     try
                     {
-                        //if(opd.SafeFileName.LastIndexOf(".") > -1)
-                        //{
-                        //    MessageBox.Show("확장자가 존재하는 파일은 선택하실 수 없습니다.");
-
-                        //    return;
-                        //}
-
-                        //단일 선택
-                        //string fileName = opd.FileName;                        
-                        //LoadFileName = fileName;
-
-                        //다중 선택
-                        if (ListLoadFileName.Count > 0)
-                            ListLoadFileName = new List<string>();
+                        //초기화
+                        if (ListLoadFileName.Count > 0 || ListLoadFilePath.Count > 0)
+                            init();
 
                         for(int i = 0; i < opd.FileNames.Length; i++)
                         {
-                            ListLoadFileName.Add(opd.FileNames[i]);
+                            ListLoadFilePath.Add(opd.FileNames[i]);
+                            ListLoadFileName.Add(opd.SafeFileNames[i]);
                         }
 
-                        BtnCount.Text = string.Format("({0}/{1})", CurrentImgNum+1, opd.FileNames.Length);
+                        UpdateBtnCount(nCurrentImgNum, ListLoadFilePath.Count);
+                        UpdateFileName(nCurrentImgNum);
 
                         //선택한 파일을 Open
                         //rList = ReadTextFileToList(fileName);
@@ -99,65 +96,67 @@ namespace Test_0502
         */
         private void LoadPictureBoxImg(string FileName)
         {
-            pictureBox1.Load(FileName);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;            
+            pbImg.Load(FileName);
+            pbImg.SizeMode = PictureBoxSizeMode.StretchImage;            
         }
 
         private void BtnControl_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
-            int i = CurrentImgNum;
+            int i = nCurrentImgNum;
             if (button.Name == "BtnLeft")
                 i--;
             else
                 i++;
 
             if (i < 0)
-                i = ListLoadFileName.Count - 1;
-            else if (i > ListLoadFileName.Count - 1)
+                i = ListLoadFilePath.Count - 1;
+            else if (i > ListLoadFilePath.Count - 1)
                 i = 0;
-            pictureBox1.Load(ListLoadFileName[i]);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            BtnCount.Text = string.Format("({0}/{1})", i + 1, ListLoadFileName.Count);
-            CurrentImgNum = i;
+            pbImg.Load(ListLoadFilePath[i]);
+            pbImg.SizeMode = PictureBoxSizeMode.StretchImage;
+            UpdateBtnCount(i, ListLoadFilePath.Count);
+            UpdateFileName(i);
         }
 
-        private void pictureBox1_DoubleClick(object sender, EventArgs e)
+        private void LoadBtn_Img_Click(object sender, EventArgs e)
         {
-            int i = CurrentImgNum;
-            i++;
-            if (i > ListLoadFileName.Count - 1)
-                i = 0;
-            pictureBox1.Load(ListLoadFileName[i]);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            BtnCount.Text = string.Format("({0}/{1})", i + 1, ListLoadFileName.Count);
-            CurrentImgNum = i;
+            OpenFileDialog();
+            if (ListLoadFilePath.Count > 0)
+            {
+                LoadPictureBoxImg(ListLoadFilePath[nCurrentImgNum]);
+                UpdateFileName(nCurrentImgNum);
+            }
         }
 
-        private void pictureBox1_MouseClick(object sender, MouseEventArgs e)
+        private void UpdateBtnCount(int nCurrentNum, int nMaxCount)
         {
-            int i = CurrentImgNum;
+            BtnCount.Text = string.Format("({0}/{1})", nCurrentNum + 1, nMaxCount);
+            nCurrentImgNum = nCurrentNum;
+        }
+
+        private void pbImg_MouseClick(object sender, MouseEventArgs e)
+        {
+            int i = nCurrentImgNum;
             if (e.Button == MouseButtons.Left)
                 i--;
             else
                 i++;
 
             if (i < 0)
-                i = ListLoadFileName.Count - 1;
-            else if (i > ListLoadFileName.Count - 1)
+                i = ListLoadFilePath.Count - 1;
+            else if (i > ListLoadFilePath.Count - 1)
                 i = 0;
 
-            pictureBox1.Load(ListLoadFileName[i]);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            BtnCount.Text = string.Format("({0}/{1})", i + 1, ListLoadFileName.Count);
-            CurrentImgNum = i;
+            pbImg.Load(ListLoadFilePath[i]);
+            pbImg.SizeMode = PictureBoxSizeMode.StretchImage;
+            UpdateBtnCount(i, ListLoadFilePath.Count);
+            UpdateFileName(i);
         }
 
-        private void LoadBtn_Img_Click(object sender, EventArgs e)
+        private void UpdateFileName(int nCurrentNum)
         {
-            OpenFileDialog();
-            if (ListLoadFileName[CurrentImgNum].Length > 0)
-                LoadPictureBoxImg(ListLoadFileName[CurrentImgNum]);
+            tbFileName.Text = ListLoadFileName[nCurrentNum];
         }
     }
 }
